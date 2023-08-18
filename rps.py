@@ -25,8 +25,29 @@ scissors = '''
 ---.__(___)
 '''
 
+hands = '''
+    _______        _______
+---'   ____)      (_____  '---
+      (_____)    (_____)
+      (_____)    (_____)
+      (____)      (____)
+---.__(___)        (___)__.---
+'''
 
 import random
+import time
+
+def animation():
+    print("Rock")
+    print(hands)
+    time.sleep(1)
+    print("Paper")
+    print(hands)
+    time.sleep(1)
+    print("Scissors")
+    print(hands)
+    time.sleep(1)
+    print("Shoot!")
 
 def again():
     play_again = input("Do you want to play again? Type 'y' for yes or 'n' for no.\n")
@@ -34,6 +55,7 @@ def again():
         rps()
     else:
         print("Thanks for playing!")
+        time.sleep(3)
         exit()
 
 def rps():
@@ -43,7 +65,8 @@ def rps():
 
     if user_choice >= 3 or user_choice < 0:
         print("You typed an invalid number, you lose!")
-
+    
+    animation()
     print(f"I choose {rps[user_choice]}{computer[user_choice]}.")
 
     computer_choice = random.randint(0, 2)
@@ -59,7 +82,6 @@ def rps():
         print("You win!")
     elif computer_choice == user_choice:
         print("It's a draw!")
-
     again()
 
 rps()
